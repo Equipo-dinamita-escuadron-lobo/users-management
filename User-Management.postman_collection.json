@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "527a0237-27ca-4a73-aa99-74d9cde2e028",
+		"name": "User-Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27405932",
+		"_collection_link": "https://red-resonance-662403.postman.co/workspace/Team-Workspace~38472f16-09b4-4ccd-8086-8cda2710f4b1/collection/27405932-527a0237-27ca-4a73-aa99-74d9cde2e028?action=share&source=collection_link&creator=27405932"
+	},
+	"item": [
+		{
+			"name": "Crear Usuario Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@test.com\",\r\n    \"password\": \"123\",\r\n    \"firstName\": \"Juan\",\r\n    \"lastName\": \"Perez\",\r\n    \"role\": \"ROLE_ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrlUsers}}/user/create-user",
+					"host": [
+						"{{baseUrlUsers}}"
+					],
+					"path": [
+						"user",
+						"create-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set('token', pm.response.text());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@test.com\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrlUsers}}/auth/login",
+					"host": [
+						"{{baseUrlUsers}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
