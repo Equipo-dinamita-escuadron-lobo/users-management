@@ -2,8 +2,7 @@ name: Java Maven Build & Docker Image Push
 
 on:
   push:
-    branches:
-      - main
+    branches:  [ "main", "master" ]
 
 
 jobs:
